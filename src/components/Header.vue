@@ -1,9 +1,18 @@
 <script setup>
 import { useAccountStore } from '@/stores/account';
+import { logout } from '@/services/accountService';
+
 const account = useAccountStore();
 //로그아웃
 const logoutAccount = async () => {
-    alert("준비 중!");
+    if(!confirm('로그아웃 하시겠습니까?')) {
+        return;
+    }
+    const res = await logout();
+    if(res === undefined || res.status !== 200) {
+        return;
+    }
+    account.setLoggedIn(false);
 }
 </script>
 
