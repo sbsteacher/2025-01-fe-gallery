@@ -47,7 +47,5 @@ const submit = async () => {
 </template>
 
 <style lang="scss" scoped>
-.join > .container {
-    max-width: 576px;
-}
+.container { max-width: 576px; }
 </style>
