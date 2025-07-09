@@ -11,11 +11,15 @@ const router = createRouter({
     },
     {
       path: '/join',
-      component: () => import('../views/Join.vue'),
+      component: () => import('../views/Join.vue')
     },
     {
       path: '/login',
-      component: () => import('../views/Login.vue'),
+      component: () => import('../views/Login.vue')
+    },
+    {
+      path: '/cart',
+      component: () => import('../views/Cart.vue')
     },
   ],
 });

@@ -1,6 +1,10 @@
 <script setup>
 import { computed } from 'vue';
 import { addItem } from '@/services/cartService';
+import { useAccountStore } from '@/stores/account';
+
+const account = useAccountStore();
+
 const props = defineProps({
     item: {
         id: Number,
@@ -14,6 +18,10 @@ const props = defineProps({
 const computedItemDiscountPrice = computed(() => (props.item.price * ((100 - props.item.discountPer) * 0.01)).toLocaleString() + '원');
 
 const put = async () => {
+    if(!account.state.loggedIn) {
+        alert('로그인 해주세요.');
+        return;
+    }
     const res = await addItem( props.item.id );
     if(res === undefined || res.status !== 200) { return; }
     console.log('카트 담기 성공!');
