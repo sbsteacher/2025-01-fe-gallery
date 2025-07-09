@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue';
-
+import { addItem } from '@/services/cartService';
 const props = defineProps({
     item: {
         id: Number,
@@ -13,14 +13,18 @@ const props = defineProps({
 //const computedItemDiscountPrice = computed(() => (props.item.price - (props.item.price * props.item.discountPer / 100)).toLocaleString() + '원');
 const computedItemDiscountPrice = computed(() => (props.item.price * ((100 - props.item.discountPer) * 0.01)).toLocaleString() + '원');
 
-const put = async () => alert('준비 중');
+const put = async () => {
+    const res = await addItem( props.item.id );
+    if(res === undefined || res.status !== 200) { return; }
+    console.log('카트 담기 성공!');
+}
 </script>
 
 <template>
     <div class="card shadow-sm">
         <!-- 상품 사진 aria-label은 영역에 대한 설명 -->
-         <span class="img" :style="{backgroundImage: `url(${props.item.imgPath})`}" 
-                           :aria-label="`상품사진(${props.item.name})`"></span>
+         <span class="img" :style="{backgroundImage: `url(/pic/item/${props.item.imgPath})`}" 
+                           :aria-label="`상품사진(${props.item.name})`"></span>                           
          <div class="card-body">
             <p class="card-text">
                 <!-- 상품 이름 -->
