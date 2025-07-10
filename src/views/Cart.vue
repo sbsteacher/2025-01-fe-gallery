@@ -1,11 +1,7 @@
 <script setup>
-import { getItems } from '@/services/cartService';
+import { getItems, removeItem } from '@/services/cartService';
 import { reactive, onMounted } from 'vue';
-
-const state = reactive({
-    items: []
-});
-
+const state = reactive({ items: [] });
 const load = async () => {
     const res = await getItems();
     if(res === undefined || res.status !== 200) {
@@ -13,9 +9,15 @@ const load = async () => {
     }
     state.items = res.data;
 }
-
-const remove = async itemId => {
-
+const remove = async cartId => {
+const res = await removeItem(cartId);
+    if(res === undefined || res.status !== 200) {
+        return;
+    }
+    load();
+    //다시 리로딩
+    //or
+    //방금 삭제한 객체만 state.items에서 삭제한다.
 }
 
 onMounted(() => {
