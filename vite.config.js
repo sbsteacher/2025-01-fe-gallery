@@ -9,7 +9,7 @@ export default defineConfig({
   define: {
     __APP_ENV__: env.VITE_APP_ENV
   },
-  base: process.env.NODE_ENV === 'production' ? '/gallery/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/2025-01-fe-gallery/' : '/',
   server: {
     proxy: {
       '/pic': {
