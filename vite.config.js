@@ -6,7 +6,6 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  ,
   base: process.env.NODE_ENV === 'production' ? '/2025-01-fe-gallery/' : '/',
   server: {
     proxy: {
