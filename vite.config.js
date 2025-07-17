@@ -6,7 +6,10 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/gallery/',
+  define: {
+    __APP_ENV__: env.VITE_APP_ENV
+  },
+  base: process.env.NODE_ENV === 'production' ? '/gallery/' : '/',
   server: {
     proxy: {
       '/pic': {
