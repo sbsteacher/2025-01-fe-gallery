@@ -22,7 +22,7 @@ const handleFileSelected = e => {
 const submit = async () => {
     const formData = new FormData();
     formData.append('img', state.img);
-    formData.append('data', new Blob([JSON.stringify(state.data)]));
+    formData.append('data', new Blob([JSON.stringify(state.data)], { type: 'application/json' }));
 
     const res = await addProduct(formData);
     console.log('res:', res);

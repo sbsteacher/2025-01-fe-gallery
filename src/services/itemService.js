@@ -3,7 +3,7 @@ import axios from './httpRequester';
 export const addProduct = formData => {
     const config = {
         headers: {
-            "Content-Type": "multipart/form-data"
+            'Content-Type': 'multipart/form-data'
         }
     }
     return axios.post('/item', formData, config).catch(e => e.response);

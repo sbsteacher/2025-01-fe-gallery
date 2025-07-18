@@ -83,7 +83,7 @@ onMounted(async () => {
             <tbody>
               <tr v-for="(item, idx) in state.order.items" :key="item.id">
                 <td>{{ idx + 1 }}</td>
-                <td><img :src="`/pic/item/${item.imgPath}`" alt="테스트" /></td>
+                <td><img :src="`/pic/item/${item.id}/${item.imgPath}`" alt="테스트" /></td>
                 <td>{{ item.name }}</td>
               </tr>
             </tbody>

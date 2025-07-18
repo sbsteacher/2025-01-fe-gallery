@@ -9,6 +9,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
+//swiper vue - 공식 사이트: https://swiperjs.com/vue
+
 const state = reactive({
     items: [],
     modules: [Navigation, Pagination, Scrollbar, A11y]
@@ -48,7 +50,7 @@ onMounted(() => {
                 @swiper="onSwiper" 
                 @slide-change="onSlideChange">
             <swiper-slide v-for="(item, idx) in state.items" :virtualIndex="idx" :key="idx">
-                <img :src="`/pic/item/${item.imgPath}`" :alt="`상품사진(${item.name})`" :aria-label="`상품사진(${item.name})`">
+                <img :src="`/pic/item/${item.id}/${item.imgPath}`" :alt="`상품사진(${item.name})`" :aria-label="`상품사진(${item.name})`">
             </swiper-slide>
         </swiper>
     </div>

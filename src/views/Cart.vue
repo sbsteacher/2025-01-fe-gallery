@@ -39,7 +39,7 @@ onMounted(() => {
             <template v-if="state.items.length">
                 <ul class="items">
                     <li v-for="item in state.items">
-                        <img :alt="`상품 사진(${item.name})`" :src="`/pic/item/${item.imgPath}`" />
+                        <img :alt="`상품 사진(${item.name})`" :src="`/pic/item/${item.id}/${item.imgPath}`" />
                         <b class="name">{{ item.name }}</b>
                         <span class="price">
                             {{ (item.price - item.price * item.discountPer / 100).toLocaleString() }}원
