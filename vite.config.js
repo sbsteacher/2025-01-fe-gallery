@@ -5,7 +5,11 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
-export default defineConfig({  
+export default defineConfig({   
+  build: {
+    outDir: 'D:/ParkDoheum/2025/2025-04-msa/backend/gallery/src/main/resources/static',
+    emptyOutDir: true
+  },
   server: {
     proxy: {
       '/pic': {

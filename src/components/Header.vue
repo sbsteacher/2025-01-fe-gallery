@@ -21,11 +21,12 @@ const logoutAccount = async () => {
     <div class="navbar navbar-dark bg-dark text-white shadow-sm">
       <div class="container">
         <router-link to="/" class="navbar-brand">
-          <strong>Gallery</strong>
+          <strong>갤러리</strong>
         </router-link>
         <div class="menus d-flex gap-3">
           <template v-if="account.state.loggedIn">
             <a @click="logoutAccount">로그아웃</a>
+            <router-link to="/addproduct">상품 등록</router-link>
             <router-link to="/orders">주문 내역</router-link>
             <router-link to="/cart">장바구니</router-link>
           </template>

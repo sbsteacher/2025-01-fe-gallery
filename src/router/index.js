@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 
 const router = createRouter({
-  history: createWebHistory(process.env.NODE_ENV === 'production' ? '/2025-01-fe-gallery/' : '/'),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -11,15 +11,15 @@ const router = createRouter({
     },
     {
       path: '/join',
-      component: () => import('../views/Join.vue')
+      component: () => import('../views/Join.vue'),
     },
     {
       path: '/login',
-      component: () => import('../views/Login.vue')
+      component: () => import('../views/Login.vue'),
     },
     {
       path: '/cart',
-      component: () => import('../views/Cart.vue')
+      component: () => import('../views/Cart.vue'),
     },
     {
       path: '/order',
@@ -37,6 +37,11 @@ const router = createRouter({
       path: '/detail',
       component: () => import('../views/Detail.vue')
     },
+    {
+      path: '/addproduct',
+      component: () => import('../views/ProductForm.vue')
+    },
+    
   ],
 });
 
