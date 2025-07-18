@@ -3,6 +3,8 @@ import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import { addProduct } from '@/services/itemService';
 
+const router = useRouter();
+
 const state = reactive({
     data: {
         name: '',
@@ -26,6 +28,11 @@ const submit = async () => {
 
     const res = await addProduct(formData);
     console.log('res:', res);
+    if(res === undefined || res.status !== 200) {
+        alert('에러 발생');
+        return;
+    }
+    router.push('/');
 }
 
 </script>
